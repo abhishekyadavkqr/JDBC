@@ -3,6 +3,7 @@ package com.lnct.AY;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
@@ -36,7 +37,14 @@ public class DeleteCommand {
 				System.out.println("Connection not Establised");
 
 
-		}
+		} catch (SQLException e) {
+			if(e.getErrorCode()>=900 && e.getErrorCode()<=999)
+				System.out.println("Invalid Column names or Table names or SQL Query");
+	}catch(Exception e) {
+		e.printStackTrace();;
+	}finally {
+		System.out.println("Thank you!");
+	}
 
 
 
