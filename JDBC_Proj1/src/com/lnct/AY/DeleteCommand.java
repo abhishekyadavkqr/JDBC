@@ -52,12 +52,28 @@ public class DeleteCommand {
 				System.out.println("Invalid Column names or Table names or SQL Query");
 	}catch(Exception e) {
 		e.printStackTrace();;
-	}finally {
-		System.out.println("Thank you!");
-	}
+	}		finally {
+		try {
+			if(sc != null)
+			sc.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		} // sc closed
+	
+		try {
+			if(st != null)
+			st.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} // st closed
+		try {
+			if(con != null)
+			con.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} // con closed
+	} // finally closed
 
+}// main closedd
+	} // class closed
 
-
-	}
-
-}

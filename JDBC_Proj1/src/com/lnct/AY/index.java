@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class index {
 
 	public static void main(String[] args) {
-		// Declear the variable
+		// Declare the variable
 		Scanner sc = null;
 		Connection con = null;
 		Statement st = null;
