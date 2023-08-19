@@ -2,7 +2,6 @@ package com.lnct.AY;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -15,15 +14,15 @@ public class DeleteCommand {
 		Scanner sc=null;
 		Connection con = null;
 		Statement st = null;
-		ResultSet rs = null;
+		
 		try {
 			//read inputs
 			sc = new Scanner(System.in);
 			if (sc!=null) {
 			String city = null;
-			city = sc.next();
+			city = sc.next().toUpperCase();
 			city = "'"+city+"'";
-			}
+			
 			
 			
 			
@@ -33,9 +32,20 @@ public class DeleteCommand {
 			if(con!=null) {
 				st = con.createStatement();
 				System.out.println("Connection Establised Successfully");
+				//Prepairing Query
+				// delete from students where city = 'BHOPAL'; 
+				String query = "DELETE FROM STUDENTS WHERE CITY ="+city;
+			int temp =0;
+				if (st!=null) {
+					temp = st.executeUpdate(query);
+					if(temp ==0)
+					System.out.println("Record not found");
+					else 
+						System.out.println("No. record are affected "+temp);
+				}
 			}else
 				System.out.println("Connection not Establised");
-
+			}
 
 		} catch (SQLException e) {
 			if(e.getErrorCode()>=900 && e.getErrorCode()<=999)
