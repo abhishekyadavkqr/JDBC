@@ -1,26 +1,28 @@
 package com.ab.date;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class DateClass {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws Exception {
 		
-			String date = "15-11-2002";
+			String date = "12-12-1990";
 //			System.out.println(date);
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
-//			java.util.Date utlDate = sdf.parse(date);
-//			System.out.println(utlDate);
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			java.util.Date utlDate = sdf.parse(date);
+			System.out.println(utlDate);
+			utlDate.getTime();
 				
-			java.util.Date d1 = new Date();
-				
-			System.out.println(d1.getTime()); 
-			java.sql.Date d2= new java.sql.Date(d1.getTime());
+			
+//			System.out.println(d1.getTime()); 
+			java.sql.Date d2= new java.sql.Date(utlDate.getTime());
 			String s = sdf.format(d2);
-			System.out.println(d2);
-			System.out.println(s);
+			System.out.println("SQL Type date "+d2);
+			System.out.println("String Type Date "+s);
+			java.util.Date d3 =(java.util.Date)(d2);			
+			System.out.println("java.util.Date type date "+d3);
+			
+			
 	}
 
 }
