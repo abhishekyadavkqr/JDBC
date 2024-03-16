@@ -2,8 +2,6 @@ package com.ab.binaryFile;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,23 +33,19 @@ public class PsInsertBlobFile {
 							 System.out.println("Enter the Actor address :: ");
 							 String adrs = sc.nextLine();
 //							 System.out.println("Enter the Actor image path");
-							String x = "E:\\ppp.jpg";
-							String y ="E:\\ppp.jpg";
-							 
-							 String imgPath ="‪E:\\ppp.jpg";
-							 String imgPath1 ="‪E:\\ppp.jpg";
-							 String img     ="E:\\ppp.jpg";
-
-								System.out.println(x.equals(imgPath));
-							 System.exit(1);
-							 System.out.println("it's working");
+							
+							 String img  ="‪D:/02.jpg";
+//									 "E:\\ppp.jpg";
+							 img = img.replace("?", "");
+								
+//							 System.out.println("it's working");
 //							 System.out.println(id+"\t"+name+"\t"+adrs+"\t"+img+"\t"+ is);
 							
 //							 System.out.println(id+"\t"+name+"\t"+adrs+"\t"+img+"\t"+ io);
-							 System.out.println(imgPath+"\t");
+							
 							 
-							 try(FileInputStream ipo = new FileInputStream(img);){
-								 System.out.println(id+"\t"+name+"\t"+adrs+"\t"+imgPath+"\t"+ ipo);
+							 try(InputStream ipo = new FileInputStream(img);){
+								 System.out.println(id+"\t"+name+"\t"+adrs+"\t"+img+"\t"+ ipo);
 								 System.exit(1);
 								 ps.setInt(1, id);
 								 ps.setString(2, name);
